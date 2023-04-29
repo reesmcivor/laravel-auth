@@ -1,6 +1,6 @@
 <?php
 
-namespace ReesMcIvor\Forms;
+namespace ReesMcIvor\Auth;
 
 use Illuminate\Support\ServiceProvider;
 
