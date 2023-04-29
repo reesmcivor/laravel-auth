@@ -2,6 +2,7 @@
 
 namespace ReesMcIvor\Auth\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use ReesMcIvor\Auth\Http\Requests\Api\UserRegisterRequest;
