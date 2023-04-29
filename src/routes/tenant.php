@@ -9,7 +9,11 @@ use ReesMcIvor\Auth\Http\Controllers\Api\ResetPasswordController;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 Route::group([
-    'middleware' => ['tenant', PreventAccessFromCentralDomains::class], // See the middleware group in Http Kernel
+    'middleware' => [
+        'tenant',
+        'api',
+        PreventAccessFromCentralDomains::class
+    ], // See the middleware group in Http Kernel
 ], function () {
 
     Route::post('user/forgot_password', ForgotPasswordController::class);
