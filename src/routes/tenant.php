@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-use ReesMcIvor\Auth\Http\Controllers\Api\User\ForgotPasswordController;
-use ReesMcIvor\Auth\Http\Controllers\Api\User\LoginController;
-use ReesMcIvor\Auth\Http\Controllers\Api\User\RegisterController;
-use ReesMcIvor\Auth\Http\Controllers\Api\User\ResetPasswordController;
+use ReesMcIvor\Auth\Http\Controllers\Api\ForgotPasswordController;
+use ReesMcIvor\Auth\Http\Controllers\Api\LoginController;
+use ReesMcIvor\Auth\Http\Controllers\Api\RegisterController;
+use ReesMcIvor\Auth\Http\Controllers\Api\ResetPasswordController;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 Route::group([

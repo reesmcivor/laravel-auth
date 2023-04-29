@@ -1,6 +1,6 @@
 <?php
 
-namespace ReesMcIvor\Auth\Http\Controllers\Api\User;
+namespace ReesMcIvor\Auth\Http\Controllers\Api;
 
 use App\Models\Role;
 use App\Models\User;
