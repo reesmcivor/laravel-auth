@@ -16,7 +16,7 @@ class AuthPackageServiceProvider extends ServiceProvider
                 __DIR__ . '/../database/migrations/tenant' => database_path('migrations/tenant'),
                 //__DIR__ . '/../database/factories' => database_path('factories'),
                 __DIR__ . '/../publish/tests' => base_path('tests/Forms'),
-            ], 'reesmcivor-tenancy-auth');
+            ], 'laravel-tenancy-auth');
         }
 
         /*
