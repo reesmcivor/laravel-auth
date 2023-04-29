@@ -4,7 +4,7 @@ namespace ReesMcIvor\Auth;
 
 use Illuminate\Support\ServiceProvider;
 
-class FormsPackageServiceProvider extends ServiceProvider
+class AuthPackageServiceProvider extends ServiceProvider
 {
 
     protected $namespace = 'ReesMcIvor\Auth\Http\Controllers';
