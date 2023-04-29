@@ -1,6 +1,6 @@
 <?php
 
-namespace ReesMcIvor\Auth\HttpRequests\Api;
+namespace ReesMcIvor\Auth\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 
