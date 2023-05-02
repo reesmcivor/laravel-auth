@@ -3,7 +3,7 @@
 namespace ReesMcIvor\Auth\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\UserLoginRequest;
+use ReesMcIvor\Auth\Http\Requests\Api\UserLoginRequest;
 use App\Notifications\User\VerifyEmail;
 use ReesMcIvor\Auth\Services\AuthService;
 use Illuminate\Http\JsonResponse;
