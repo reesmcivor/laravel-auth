@@ -13,8 +13,11 @@ Route::middleware([
     \Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
-    Route::post('user/forgot_password', ForgotPasswordController::class);
-    Route::post('user/set_password', ResetPasswordController::class);
-    Route::post('user/login', LoginController::class);
-    Route::post('api/user/register', RegisterController::class);
+
+    Route::prefix('api/user')->group(function() {
+        Route::post('forgot_password', ForgotPasswordController::class);
+        Route::post('set_password', ResetPasswordController::class);
+        Route::any('login', LoginController::class);
+        Route::post('register', RegisterController::class);
+    });
 });
