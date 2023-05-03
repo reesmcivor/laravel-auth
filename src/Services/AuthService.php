@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Appointment;
+namespace ReesMcIvor\Auth\Services;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 class AuthService {
