@@ -6,11 +6,13 @@ use ReesMcIvor\Auth\Http\Controllers\Api\ForgotPasswordController;
 use ReesMcIvor\Auth\Http\Controllers\Api\LoginController;
 use ReesMcIvor\Auth\Http\Controllers\Api\RegisterController;
 use ReesMcIvor\Auth\Http\Controllers\Api\ResetPasswordController;
+use ReesMcIvor\Auth\Http\Controllers\Api\VerifyEmailController;
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 Route::middleware([
     'api',
-    \Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain::class,
+    InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
 
@@ -20,4 +22,8 @@ Route::middleware([
         Route::any('login', LoginController::class);
         Route::post('register', RegisterController::class);
     });
+});
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('email/verify/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('user.verify_email');
 });
