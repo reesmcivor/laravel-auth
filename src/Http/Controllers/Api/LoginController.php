@@ -3,6 +3,7 @@
 namespace ReesMcIvor\Auth\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use ReesMcIvor\Auth\Http\Requests\Api\UserLoginRequest;
 use ReesMcIvor\Auth\Notifications\Auth\VerifyEmail;
 use ReesMcIvor\Auth\Services\AuthService;
@@ -12,6 +13,8 @@ class LoginController extends Controller {
 
     public function __invoke( UserLoginRequest $request ) : JsonResponse
     {
+        Log::debug($request->all());
+
         $authService = (new AuthService);
         if(!$user = $authService->login($request)) {
             return response()->json(['message' => 'Invalid user'], 403);
@@ -26,6 +29,7 @@ class LoginController extends Controller {
         }
 
         return response()->json([
+            'id' => $user->id,
             'token' => $token,
             'message' => $user->hasVerifiedEmail() ? 'Login successful' : 'Please verify your email address.',
             'verified' => $user->hasVerifiedEmail(),
