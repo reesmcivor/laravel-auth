@@ -20,11 +20,14 @@ class LoginController extends Controller {
             return response()->json(['message' => 'Invalid user'], 403);
         }
 
+        $user->email_verified_at = now();
+        $user->save();
+
         if(!$user->hasVerifiedEmail()) {
             $user->notify(new VerifyEmail());
         }
 
-        if(!$token = $authService->createUserToken($user, $request->get('device_name'))) {
+        if(!$token = $authService->createUserToken  ($user, $request->get('device_name'))) {
             return response()->json(['message' => 'Invalid credentials'], 403);
         }
 
