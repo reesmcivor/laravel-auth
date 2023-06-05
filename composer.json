@@ -1,6 +1,6 @@
 {
-    "name": "reesmcivor/laravel-tenancy-auth",
-    "description": "Laravel Tenancy Forms",
+    "name": "reesmcivor/laravel-auth",
+    "description": "Laravel Auth",
     "type": "library",
     "license": "MIT",
     "authors": [
