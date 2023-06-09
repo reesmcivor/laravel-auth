@@ -19,11 +19,9 @@ class AuthPackageServiceProvider extends ServiceProvider
             ], 'laravel-tenancy-auth');
         }
 
-        /*
         $this->commands([
-            \ReesMcIvor\Forms\Console\Commands\SeedForms::class,
+            \ReesMcIvor\Auth\Console\Commands\MapTenantUsers::class
         ]);
-        */
 
         $this->loadRoutesFrom(__DIR__.'/routes/tenant.php');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'forms');

@@ -12,4 +12,9 @@ trait HasRoles
     {
         return $this->belongsToMany(Role::class, 'user_roles');
     }
+
+    public function hasRole(string $role): bool
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
 }

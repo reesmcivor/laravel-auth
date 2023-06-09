@@ -27,3 +27,11 @@ Route::middleware([
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('email/verify/{id}/{hash}', VerifyEmailController::class)->middleware(['signed', 'throttle:6,1'])->name('user.verify_email');
 });
+
+
+Route::middleware('api')
+    ->prefix('api')
+    ->group(function () {
+        Route::get('user/lookup', \ReesMcIvor\Auth\Http\Controllers\Api\LookupUserController::class);
+    }
+    );
