@@ -13,7 +13,7 @@ class AuthPackageServiceProvider extends ServiceProvider
     {
         if($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../database/migrations/tenant' => database_path('migrations/tenant'),
+                __DIR__ . '/../database/migrations' => database_path('migrations'),
                 //__DIR__ . '/../database/factories' => database_path('factories'),
                 __DIR__ . '/../publish/tests' => base_path('tests/Auth'),
             ], 'laravel-tenancy-auth');
