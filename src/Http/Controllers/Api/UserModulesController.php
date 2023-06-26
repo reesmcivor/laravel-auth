@@ -11,19 +11,13 @@ use ReesMcIvor\Auth\Notifications\Auth\VerifyEmail;
 use ReesMcIvor\Auth\Services\AuthService;
 use Illuminate\Http\JsonResponse;
 
-class LookupUserController extends Controller {
+class UserModulesController extends Controller {
 
     public function __invoke( Request $request ) : JsonResponse
     {
-        $this->validate($request, [
-            'email' => 'exists:tenant_users'
-        ]);
-
-        $tenant = TenantUser::where('email', $request->get('email'))->get()->first();
-        tenancy()->initialize($tenant->tenant_id);
-
+        $modules = Modules::with('features')->get();
         return response()->json([
-            'domain' => tenant()->domain
+            'modules' => $modules
         ]);
     }
 

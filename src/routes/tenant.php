@@ -29,9 +29,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 
-Route::middleware('api')
-    ->prefix('api')
-    ->group(function () {
-        Route::get('user/lookup', \ReesMcIvor\Auth\Http\Controllers\Api\LookupUserController::class);
-    }
-    );
+Route::middleware('api')->prefix('api')->group(function () {
+    Route::get('user/modules', \ReesMcIvor\Auth\Http\Controllers\Api\UserModulesController::class);
+    Route::get('user/lookup', \ReesMcIvor\Auth\Http\Controllers\Api\LookupUserController::class);
+});
