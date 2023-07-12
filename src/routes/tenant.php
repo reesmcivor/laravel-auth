@@ -6,6 +6,7 @@ use ReesMcIvor\Auth\Http\Controllers\Api\ForgotPasswordController;
 use ReesMcIvor\Auth\Http\Controllers\Api\LoginController;
 use ReesMcIvor\Auth\Http\Controllers\Api\RegisterController;
 use ReesMcIvor\Auth\Http\Controllers\Api\ResetPasswordController;
+use ReesMcIvor\Auth\Http\Controllers\Api\NewPasswordController;
 use ReesMcIvor\Auth\Http\Controllers\Api\VerifyEmailController;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
@@ -16,12 +17,14 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
 
-    Route::prefix('api/user')->group(function() {
+    Route::prefix('api/user')->name("api.user.")->group(function() {
         Route::post('forgot_password', ForgotPasswordController::class);
-        Route::post('set_password', ResetPasswordController::class);
+        Route::post('set_password', ResetPasswordController::class)->name("set-password");
+        Route::post('new_password', NewPasswordController::class)->name("new-password");
         Route::any('login', LoginController::class);
         Route::post('register', RegisterController::class);
     });
+
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {

@@ -10,6 +10,7 @@ use ReesMcIvor\Auth\Models\TenantUser;
 use ReesMcIvor\Auth\Notifications\Auth\VerifyEmail;
 use ReesMcIvor\Auth\Services\AuthService;
 use Illuminate\Http\JsonResponse;
+use ReesMcIvor\Auth\Models\Modules;
 
 class UserModulesController extends Controller {
 
